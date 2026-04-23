@@ -1,0 +1,20 @@
+{
+  "name": "trading-analysis-webapp",
+  "version": "1.0.0",
+  "description": "Webapp profesional de análisis de trading con IA basada en Order Flow, Oferta/Demanda y Liquidez",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["trading", "analysis", "orderflow", "supply-demand"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "@anthropic-ai/sdk": "^0.20.0"
+  }
+}
