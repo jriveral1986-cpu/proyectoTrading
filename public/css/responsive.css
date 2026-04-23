@@ -41,6 +41,8 @@
   .btn {
     padding: 0.65rem 1.25rem;
     font-size: 0.85rem;
+    min-height: 44px;
+    min-width: 44px;
   }
 
   .analysis-results {
@@ -141,6 +143,8 @@
   .btn-sm {
     padding: 0.4rem 0.75rem;
     font-size: 0.75rem;
+    min-height: 44px;
+    min-width: 44px;
   }
 
   .theme-toggle {
@@ -358,8 +362,8 @@
 @media (hover: none) and (pointer: coarse) {
   .btn {
     padding: 0.9rem 1.6rem;
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 48px;
+    min-width: 48px;
   }
 
   .form-group input,
@@ -367,10 +371,17 @@
   .form-group textarea {
     padding: 0.85rem;
     font-size: 16px; /* Previene zoom en iOS */
+    min-height: 44px;
   }
 
   .history-item:hover {
     transform: none;
     background: var(--border-color);
+  }
+
+  .form-group input[type="checkbox"],
+  .form-group input[type="radio"] {
+    min-height: 24px;
+    min-width: 24px;
   }
 }

@@ -12,11 +12,20 @@
     <!-- Header -->
     <header class="header">
       <div class="header-content">
-        <h1>📊 Trading Analysis Pro</h1>
+        <h1>
+          <svg class="icon icon-analysis" aria-hidden="true">
+            <use xlink:href="/icons.svg#icon-analysis"></use>
+          </svg>
+          Trading Analysis Pro
+        </h1>
         <p>Análisis profesional de Trading con Order Flow, Oferta/Demanda y Liquidez</p>
       </div>
       <div class="theme-toggle">
-        <button id="themeBtn" class="theme-btn" title="Cambiar tema">🌙</button>
+        <button id="themeBtn" class="theme-btn" title="Cambiar tema" aria-label="Alternar tema oscuro/claro">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="/icons.svg#icon-moon"></use>
+          </svg>
+        </button>
       </div>
     </header>
 
@@ -139,10 +148,16 @@
           <!-- Botones de acción -->
           <div class="form-actions">
             <button type="submit" id="analyzeBtn" class="btn btn-primary">
-              🚀 Analizar Mercado
+              <svg class="icon icon-sm" aria-hidden="true">
+                <use xlink:href="/icons.svg#icon-rocket"></use>
+              </svg>
+              Analizar Mercado
             </button>
             <button type="button" id="clearBtn" class="btn btn-secondary">
-              🔄 Limpiar
+              <svg class="icon icon-sm" aria-hidden="true">
+                <use xlink:href="/icons.svg#icon-reset"></use>
+              </svg>
+              Limpiar
             </button>
           </div>
         </form>
@@ -163,7 +178,12 @@
       <section class="results-section" id="resultsSection" style="display: none;">
         <div class="results-header">
           <h2>Análisis en Tiempo Real</h2>
-          <button type="button" id="closeResultsBtn" class="btn btn-sm btn-secondary">Cerrar</button>
+          <button type="button" id="closeResultsBtn" class="btn btn-sm btn-secondary">
+            <svg class="icon icon-xs" aria-hidden="true">
+              <use xlink:href="/icons.svg#icon-close"></use>
+            </svg>
+            Cerrar
+          </button>
         </div>
 
         <div class="analysis-loading" id="analysisLoading">
@@ -177,10 +197,16 @@
 
         <div class="results-actions">
           <button type="button" id="saveAnalysisBtn" class="btn btn-primary">
-            💾 Guardar en Historial
+            <svg class="icon icon-sm" aria-hidden="true">
+              <use xlink:href="/icons.svg#icon-save"></use>
+            </svg>
+            Guardar en Historial
           </button>
           <button type="button" id="copyAnalysisBtn" class="btn btn-secondary">
-            📋 Copiar Texto
+            <svg class="icon icon-sm" aria-hidden="true">
+              <use xlink:href="/icons.svg#icon-copy"></use>
+            </svg>
+            Copiar Texto
           </button>
         </div>
       </section>
@@ -190,6 +216,9 @@
     <footer class="footer">
       <p>Trading Analysis Pro v1.0 | Análisis profesional basado en Order Flow y Market Structure</p>
     </footer>
+
+    <!-- SVG Icons -->
+    <link rel="preload" href="/icons.svg" as="image" type="image/svg+xml">
   </div>
 
   <!-- Scripts -->

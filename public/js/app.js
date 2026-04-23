@@ -270,14 +270,21 @@ function toggleTheme() {
   const currentTheme = Utils.getTheme();
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
   Utils.setTheme(newTheme);
-
-  const themeBtn = document.getElementById('themeBtn');
-  themeBtn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+  updateThemeIcon();
 }
 
 // Inicializar tema en botón
 window.addEventListener('load', () => {
+  updateThemeIcon();
+});
+
+// Actualizar icono del tema
+function updateThemeIcon() {
   const theme = Utils.getTheme();
   const themeBtn = document.getElementById('themeBtn');
-  themeBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
-});
+  const useElement = themeBtn.querySelector('use');
+  if (useElement) {
+    const iconId = theme === 'dark' ? '#icon-moon' : '#icon-sun';
+    useElement.setAttribute('xlink:href', `/icons.svg${iconId}`);
+  }
+}
