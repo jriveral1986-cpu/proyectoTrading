@@ -24,7 +24,7 @@ export const Utils = {
     if (seconds < 60) return 'hace unos segundos';
     if (minutes < 60) return `hace ${minutes} minuto${minutes > 1 ? 's' : ''}`;
     if (hours < 24) return `hace ${hours} hora${hours > 1 ? 's' : ''}`;
-    return this.formatDate(new Date(timestamp));
+    return Utils.formatDate(new Date(timestamp));
   },
 
   // Validar formulario
@@ -119,7 +119,7 @@ export const Utils = {
   // Guardar al localStorage
   saveToHistory: (analysisData) => {
     try {
-      const history = this.getHistory();
+      const history = Utils.getHistory();
       history.unshift(analysisData);
       // Limitar a últimos 20 análisis
       if (history.length > 20) {
@@ -157,7 +157,7 @@ export const Utils = {
 
   // Inicializar tema
   initTheme: () => {
-    const theme = this.getTheme();
+    const theme = Utils.getTheme();
     if (theme === 'light') {
       document.body.classList.add('light-mode');
     }

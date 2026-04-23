@@ -1,5 +1,5 @@
-import { Utils } from './utils.js';
-import { API } from './api.js';
+import { Utils } from './utils.js?v=2';
+import { API } from './api.js?v=2';
 
 let currentAnalysis = '';
 let analysisAbortController = null;

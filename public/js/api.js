@@ -1,6 +1,6 @@
 // Cliente API para interacción con el servidor
 
-import { Utils } from './utils.js';
+import { Utils } from './utils.js?v=2';
 
 export const API = {
   baseURL: '',

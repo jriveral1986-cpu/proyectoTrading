@@ -19,7 +19,7 @@ const client = new Anthropic({
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(join(__dirname, 'public')));
+app.use(express.static(join(__dirname, 'public'), { etag: false, lastModified: false, setHeaders: (res) => res.setHeader('Cache-Control', 'no-store') }));
 
 app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'public', 'index.html'));
