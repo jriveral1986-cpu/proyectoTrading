@@ -5,13 +5,18 @@ Documento que define las directrices y reglas que rigen el desarrollo y operaci�
 ## 1. Reglas de Desarrollo
 
 ### 1.1 Control de Cambios
-- **Cada cambio debe ser levantado nuevamente** - Tras completar una modificación, se debe reiniciar el servidor para verificar que funciona correctamente
+- **Cada cambio debe ser levantado nuevamente** - Tras completar una modificación, se debe reiniciar el servidor (`npm start`) para verificar que funciona correctamente. Esto incluye:
+  - Validar que el servidor inicia sin errores
+  - Verificar que la interfaz carga correctamente
+  - Probar funcionalidad básica (análisis, historial, tema)
+  - Abrir console para verificar no hay errores JavaScript
 - **Validar cambios previos** - Antes de hacer un nuevo cambio, verificar en `Revisiones.md` que no se haya hecho antes
 - **Registrar todas las revisiones** - Cada cambio, corrección o mejora debe estar documentado en `Revisiones.md` con:
   - Qué se cambió
   - Cuándo se cambió (fecha)
   - Razón del cambio
   - Archivos afectados
+  - Cómo se validó el cambio
 
 ### 1.2 Interfaz de Usuario
 
