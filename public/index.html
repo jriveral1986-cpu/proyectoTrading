@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Analysis Pro - Análisis Profesional de Trading</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1>
+          <svg class="icon icon-analysis" aria-hidden="true">
+            <use xlink:href="/icons.svg#icon-analysis"></use>
+          </svg>
+          Trading Analysis Pro
+        </h1>
+        <p>Análisis profesional de Trading con Order Flow, Oferta/Demanda y Liquidez</p>
+      </div>
+      <div class="theme-toggle">
+        <button id="themeBtn" class="theme-btn" title="Cambiar tema" aria-label="Alternar tema oscuro/claro">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="/icons.svg#icon-moon"></use>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Sección de Formulario -->
+      <section class="form-section">
+        <h2>Parámetros de Análisis</h2>
+
+        <form id="analysisForm" class="analysis-form">
+          <!-- Fila 1: Activo y Temporalidad -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="activo">Activo *</label>
+              <input
+                type="text"
+                id="activo"
+                name="activo"
+                placeholder="ej: EURUSD, BTCUSD, SPY"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="temporalidad">Temporalidad *</label>
+              <select id="temporalidad" name="temporalidad" required>
+                <option value="">Seleccionar...</option>
+                <option value="M1">M1 - 1 Minuto</option>
+                <option value="M5">M5 - 5 Minutos</option>
+                <option value="M15">M15 - 15 Minutos</option>
+                <option value="M30">M30 - 30 Minutos</option>
+                <option value="H1">H1 - 1 Hora</option>
+                <option value="H4">H4 - 4 Horas</option>
+                <option value="D1">D1 - Diario</option>
+                <option value="W1">W1 - Semanal</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Fila 2: Sesión y Volatilidad -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sesion">Sesión de Trading *</label>
+              <select id="sesion" name="sesion" required>
+                <option value="">Seleccionar...</option>
+                <option value="Tokio">Tokio (22:00-06:00 GMT)</option>
+                <option value="Londres">Londres (08:00-16:00 GMT)</option>
+                <option value="Nueva York">Nueva York (13:00-21:00 GMT)</option>
+                <option value="Sídney">Sídney (21:00-05:00 GMT)</option>
+                <option value="Solapamiento">Solapamiento</option>
+                <option value="Pre-mercado">Pre-mercado</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="volatilidad">Volatilidad (%) *</label>
+              <input
+                type="number"
+                id="volatilidad"
+                name="volatilidad"
+                placeholder="ej: 85, 120"
+                min="0"
+                max="999"
+                required
+              >
+            </div>
+          </div>
+
+          <!-- Fila 3: Noticias/Eventos -->
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="noticias">Noticias/Eventos Relevantes</label>
+              <textarea
+                id="noticias"
+                name="noticias"
+                placeholder="ej: FOMC hoy 14:00, Datos de empleo, etc."
+                rows="2"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Fila 4: Indicadores -->
+          <div class="indicators-section">
+            <h3>Indicadores Técnicos (Opcional)</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="rsi">RSI (14)</label>
+                <input
+                  type="number"
+                  id="rsi"
+                  name="rsi"
+                  placeholder="ej: 65, 35"
+                  min="0"
+                  max="100"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="macd">MACD</label>
+                <input
+                  type="text"
+                  id="macd"
+                  name="macd"
+                  placeholder="ej: Alcista, Bajista, Neutral"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="ema">EMA 20/50/200</label>
+                <input
+                  type="text"
+                  id="ema"
+                  name="ema"
+                  placeholder="ej: Alineadas alcistas, Cruzadas, etc."
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones de acción -->
+          <div class="form-actions">
+            <button type="submit" id="analyzeBtn" class="btn btn-primary">
+              <svg class="icon icon-sm" aria-hidden="true">
+                <use xlink:href="/icons.svg#icon-rocket"></use>
+              </svg>
+              Analizar Mercado
+            </button>
+            <button type="button" id="clearBtn" class="btn btn-secondary">
+              <svg class="icon icon-sm" aria-hidden="true">
+                <use xlink:href="/icons.svg#icon-reset"></use>
+              </svg>
+              Limpiar
+            </button>
+          </div>
+        </form>
+
+        <!-- Historial de análisis -->
+        <div class="history-section">
+          <h3>Últimos Análisis</h3>
+          <div id="historyList" class="history-list">
+            <p class="empty-state">No hay análisis aún</p>
+          </div>
+          <button type="button" id="clearHistoryBtn" class="btn btn-sm btn-secondary" style="display: none;">
+            Limpiar Historial
+          </button>
+        </div>
+      </section>
+
+      <!-- Sección de Resultados -->
+      <section class="results-section" id="resultsSection" style="display: none;">
+        <div class="results-header">
+          <h2>Análisis en Tiempo Real</h2>
+          <button type="button" id="closeResultsBtn" class="btn btn-sm btn-secondary">
+            <svg class="icon icon-xs" aria-hidden="true">
+              <use xlink:href="/icons.svg#icon-close"></use>
+            </svg>
+            Cerrar
+          </button>
+        </div>
+
+        <div class="analysis-loading" id="analysisLoading">
+          <div class="spinner"></div>
+          <p>Analizando el mercado...</p>
+        </div>
+
+        <div id="analysisResults" class="analysis-results">
+          <!-- Los resultados aparecerán aquí -->
+        </div>
+
+        <div class="results-actions">
+          <button type="button" id="saveAnalysisBtn" class="btn btn-primary">
+            <svg class="icon icon-sm" aria-hidden="true">
+              <use xlink:href="/icons.svg#icon-save"></use>
+            </svg>
+            Guardar en Historial
+          </button>
+          <button type="button" id="copyAnalysisBtn" class="btn btn-secondary">
+            <svg class="icon icon-sm" aria-hidden="true">
+              <use xlink:href="/icons.svg#icon-copy"></use>
+            </svg>
+            Copiar Texto
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Trading Analysis Pro v1.0 | Análisis profesional basado en Order Flow y Market Structure</p>
+    </footer>
+
+    <!-- SVG Icons -->
+    <link rel="preload" href="/icons.svg" as="image" type="image/svg+xml">
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
